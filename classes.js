@@ -31,6 +31,22 @@
 
 //Code Here
 
+class Employee {
+  constructor(first_name, last_name, email, age) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age
+  }
+  makeWidget() {
+    return `${this.first_name} ${this.last_name} Widget`
+  }
+}
+
+let newEmployee = new Employee('Lily', 'Alvarado', 'lala@email', 28);
+newEmployee.makeWidget();
+
+
 
 
 ////////// PROBLEM 2 //////////
@@ -50,7 +66,38 @@
 */
 
 //Code Here
+class Manager {
+  constructor(first_name, last_name, email, age) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = []
+  }
+  makeWidget() {
+    return `${this.first_name} ${this.last_name} Widget`
+  }
+  hire(newEmployee) {
+    this.reports.push(newEmployee)
+  }
+  fire(index) {
+    this.reports.splice(index, 1)
+  }
+}
 
+class Manager2 extends Employee {
+  constructor(first_name, last_name, email, age) {
+    super(first_name, last_name, email, age)
+    this.reports = [];
+  }
+  hire(newEmployee) {
+    this.reports.push(newEmployee)
+  }
+  fire(index) {
+    this.reports.splice(index, 1)
+  
+  }
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -76,6 +123,38 @@
 */
 
 //Code Here
+
+// class ProgressiveManager extends Manager2 {
+//   constructor(first_name, last_name, email, age) {
+//     super(first_name, last_name, email, age){
+//       this.title = 'Not a manager'
+//       this.bonus = 0;
+//     }
+//     hire(newEmployee){
+//       this.reports.push(newEmployee)
+//       this.updateTitle(this.reports.length);
+//     }
+//     fire(index){
+//       this.reports.splice(index, 1)
+//       this.bonus = this.bonus + 100;
+//       this.updateTitle(this.reports.length)
+//     }
+//     updateTitle(n){
+//       //this.reports.length
+//       if (n === 0) {
+//         this.title = 'Not a manager'
+//       } else if (n < 4) {
+//         this.title = 'Barely Manager'
+//       } else if (n < 11) {
+//         this.title = 'Mostly Manager'
+//       } else if (n < 51) {
+//         this.title = 'Manager'
+//       } else if (n < 101) {
+//         this.title = 'Manager Plus'
+//       } else this.title = 'Bestest Manager'
+//     }
+//   }
+// }
 
 
 
@@ -103,5 +182,33 @@
 */
 
 //Code Here
-
+class Machine {
+  constructor() {
+    this.widgets_made_count = 0;
+      this.wear_and_tear_count = 0;
+      this.needs_reboot = false
+  }
+  makeWidgets(num) {
+    this.widgets_made_count += num;
+    //increase wear_and_tear_count by 1 per 50 widgets
+    let fifty = (num / 50);
+    this.wear_and_tear_count += Math.trunc(fifty);
+  }
+  fixMachine() {
+    this.needs_reboot = true;
+  }
+  // reboot() {
+  //   let that = this;
+  //   return function (){
+  //     that.wear_and_tear_count -= 10;
+  //     that.needs_reboot = false;
+  //   }
+  // }
+  reboot() {
+    return ()=>{
+      this.wear_and_tear_count -= 10;
+      this.needs_reboot = false;
+    }
+  }
+}
 

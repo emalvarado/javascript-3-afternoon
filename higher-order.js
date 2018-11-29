@@ -21,7 +21,11 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
 */
 
 //Code Here
-let evenNumbers // = mixedNumbers.filter(/* Provide Your Callback Here */)
+let evenNumbers  = mixedNumbers.filter((el,i,arr)=>{
+  if(el%2===0){
+    return el
+  }
+})
 
 
 
@@ -44,7 +48,10 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 //Code Here
-let postTaxPrices // = prices.map(/* Provide Your Callback Here );
+let postTaxPrices = prices.map((el,i,arr)=>{
+  return el * 1.07;
+});
+
 
 
 
@@ -126,6 +133,19 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal //Code Here
 
+let findBob = purchases.filter((el)=>{
+  if(el.owner === 'Bob'===true){
+    return true
+  }
+})
 
+let bobsTotal = findBob.reduce((acc,el)=>{
+  return acc += el.price
+},0)
+
+let bobsTotal2 = purchases.reduce((acc,el)=>{
+  if( el.owner ==='Bob'){
+    return acc += el.price
+  }else return acc
+},0)
