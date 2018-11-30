@@ -99,4 +99,26 @@ function greeting( obj ) {
 
 //Code Here
 
+function numberGroups(a,b,c){
+  if(a.length>b.length && a.length>c.length){
+    return a;
+  }else if(b.length> a.length && b.length>c.length){
+    return b;
+  }else {
+    return c
+  }
+}
 
+
+function numberGroups({a,b,c}){
+  let longest = a.length;
+  let longestArr = a;
+  if(b.length>longest) {
+    longest  = b.length
+    longestArr = b
+  }
+  if(c.length>longest){
+    longestArr = c;
+  }
+  return longestArr;
+}

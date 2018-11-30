@@ -79,6 +79,10 @@ function greaterThan10(obj){
 
 //Code Here
 
+function double(){
+  
+}
+
 
 
 ////////// PROBLEM 4 //////////

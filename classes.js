@@ -95,7 +95,7 @@ class Manager2 extends Employee {
   }
   fire(index) {
     this.reports.splice(index, 1)
-  
+
   }
 }
 
@@ -124,37 +124,37 @@ class Manager2 extends Employee {
 
 //Code Here
 
-// class ProgressiveManager extends Manager2 {
-//   constructor(first_name, last_name, email, age) {
-//     super(first_name, last_name, email, age){
-//       this.title = 'Not a manager'
-//       this.bonus = 0;
-//     }
-//     hire(newEmployee){
-//       this.reports.push(newEmployee)
-//       this.updateTitle(this.reports.length);
-//     }
-//     fire(index){
-//       this.reports.splice(index, 1)
-//       this.bonus = this.bonus + 100;
-//       this.updateTitle(this.reports.length)
-//     }
-//     updateTitle(n){
-//       //this.reports.length
-//       if (n === 0) {
-//         this.title = 'Not a manager'
-//       } else if (n < 4) {
-//         this.title = 'Barely Manager'
-//       } else if (n < 11) {
-//         this.title = 'Mostly Manager'
-//       } else if (n < 51) {
-//         this.title = 'Manager'
-//       } else if (n < 101) {
-//         this.title = 'Manager Plus'
-//       } else this.title = 'Bestest Manager'
-//     }
-//   }
-// }
+class ProgressiveManager extends Manager2 {
+  constructor(first_name, last_name, email, age) {
+    super(first_name, last_name, email, age)
+      this.title = 'Not a manager'
+      this.bonus = 0;
+  }
+    hire(newEmployee){
+      this.reports.push(newEmployee)
+      this.updateTitle(this.reports.length);
+    }
+    fire(index){
+      this.reports.splice(index, 1)
+      this.bonus = this.bonus + 100;
+      this.updateTitle(this.reports.length)
+    }
+    updateTitle(n){
+      //this.reports.length
+      if (n === 0) {
+        this.title = 'Not a manager'
+      } else if (n < 4) 
+        this.title = 'Barely Manager'
+       else if (n < 11) 
+        this.title = 'Mostly Manager'
+       else if (n < 51) 
+        this.title = 'Manager'
+       else if (n < 101) 
+        this.title = 'Manager Plus'
+       else this.title = 'Bestest Manager'
+    }
+  }
+
 
 
 
@@ -185,8 +185,8 @@ class Manager2 extends Employee {
 class Machine {
   constructor() {
     this.widgets_made_count = 0;
-      this.wear_and_tear_count = 0;
-      this.needs_reboot = false
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false
   }
   makeWidgets(num) {
     this.widgets_made_count += num;
@@ -205,10 +205,12 @@ class Machine {
   //   }
   // }
   reboot() {
-    return ()=>{
+    return () => {
       this.wear_and_tear_count -= 10;
       this.needs_reboot = false;
     }
   }
 }
+
+//arrow functions can look out of scope
 

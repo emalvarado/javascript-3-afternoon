@@ -64,6 +64,8 @@ function employeeUpdater(){
   return employees;
 }
 
+//^ need to go backwords if you want it to work in any situtation
+// the for in loop is not needed because we are just looking for a known key
 
 
 ////////// PROBLEM 2 //////////
@@ -92,6 +94,7 @@ function removeDuplicates(arr){
     }
     return arr;
   }
+}
 
 
 
@@ -182,4 +185,15 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
 //Code Here
 
-
+function looper(){
+  for(let i=0; i<numsArr.length;i++){
+    for(let j=0; j< numsArr[i].length; j++){
+      if(numsArr[i][j]%2!==0){
+        numsArr[i][j] = 'odd'
+      }else{
+        numsArr[i][j] = 'even'
+      }
+    }
+  }
+  return numsArr;
+}
