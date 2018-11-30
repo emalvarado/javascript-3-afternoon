@@ -191,8 +191,7 @@ class Machine {
   makeWidgets(num) {
     this.widgets_made_count += num;
     //increase wear_and_tear_count by 1 per 50 widgets
-    let fifty = (num / 50);
-    this.wear_and_tear_count += Math.trunc(fifty);
+    this.wear_and_tear_count += num/50;
   }
   fixMachine() {
     this.needs_reboot = true;
@@ -212,5 +211,5 @@ class Machine {
   }
 }
 
-//arrow functions can look out of scope
+//arrow functions do not create a new instance of this
 
